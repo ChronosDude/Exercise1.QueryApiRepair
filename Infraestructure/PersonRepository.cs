@@ -90,14 +90,15 @@ namespace QueryApi.Repositories
             var query = _persons.Where(x => x.FirstName.Contains(word));
             return query;
         }
-
-        public IEnumerable<Person> GetByList(int l1, int l2, int l3)
+ // retornar valores entre un rango
+        public IEnumerable<Person> GetByList(string Edades)
         {
-           var ages = new List<int>{l1,l2,l3};
+           // var ages = new List<int>{l1,l2,l3}; metodo antiguo con una listas de 3 elementos estaticos.
+           var ages = Edades.Split(",").Select(Int32.Parse).ToList(); //Metodo que transforma el string en una lista basandose en las comas.
            var query = _persons.Where(person=>ages.Contains(person.Age));
            return query; 
         }
-        // retornar valores entre un rango
+       
         
         // retornar elementos ordenados
 

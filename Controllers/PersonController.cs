@@ -82,7 +82,7 @@ namespace Controllers
         }
 
         [HttpGet]
-        [Route("ByList={l1},{l3},{l2}")] ///api/person/bylist=18,20,40 ejemplo, solo va a funcionar si los valores se separan con comas
+        [Route("ByList={Edades}")] ///api/person/bylist=18,20,40 ejemplo, solo va a funcionar si los valores se separan con comas
         public IActionResult GetByList(string Edades)
         {
             var repository = new PersonRepository();

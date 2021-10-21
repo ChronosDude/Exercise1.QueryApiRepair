@@ -82,11 +82,11 @@ namespace Controllers
         }
 
         [HttpGet]
-        [Route("ByList={l1},{l3},{l2}")] ///api/person/bylist=18,20,40
-        public IActionResult GetByList(int l1, int l2, int l3)
+        [Route("ByList={l1},{l3},{l2}")] ///api/person/bylist=18,20,40 ejemplo, solo va a funcionar si los valores se separan con comas
+        public IActionResult GetByList(string Edades)
         {
             var repository = new PersonRepository();
-            var persons = repository.GetByList(l1, l2, l3);
+            var persons = repository.GetByList(Edades);
             return Ok(persons);
         }
         
